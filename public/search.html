@@ -24,26 +24,26 @@
     <!--Header-->
     <div class="card">
         <div class="card-header text-center bg-black text-light">
-            Home
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <p class="nav-link text-white">Search</p>
+            </ul>
         </div>
     </div>
-
     <!--Body-->
     <div class="container-md card-body">
 
-        <!--Select-->
-        <div class="container-md mt-3 mb-3">
-            <select class="form-select" aria-label="Default select example" id="select">
-                <option selected value="search">search</option>
-                <option value="create">create</option>
-                <option value="update">update</option>
-                <option value="delete">delete</option>
-            </select>
+        <!--Search-->
+        <div class="container-md mt-3 mb-3" id="search_return">
+
         </div>
 
         <!--Button-->
         <div class="container-md mt-3 mb-3">
-            <button type="submit" class="btn btn-primary" id="choose" onclick=Choose();>Choose</button>
+            <button type="submit" class="btn btn-primary" id="search" onclick=Search()>Search</button>
         </div>
 
     </div>
