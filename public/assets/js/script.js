@@ -4,12 +4,12 @@ function Choose() {
     // console.log(value);
 
     switch (value) {
-        case "search":
-            window.location.href = "../search.html";
-            break;
-
         case "create":
             window.location.href = "../create.html";
+            break;
+
+        case "read":
+            window.location.href = "../read.html";
             break;
 
         case "update":
@@ -23,4 +23,26 @@ function Choose() {
             console.log("Error");
 
     }
+}
+
+function Create(){
+
+}
+
+function Read(){
+    var result = document.getElementById("read_return")
+    var ajax = new XMLHttpRequest();
+
+    result.innerHtml = '<img src="../img/loading.gif" width="100px">';
+
+    ajax.open("GET", "../php/app.php?read", true);
+
+}
+
+function Update(){
+
+}
+
+function Delete(){
+
 }
