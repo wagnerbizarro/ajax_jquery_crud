@@ -25,24 +25,32 @@ function Choose() {
     }
 }
 
-function Create(){
+function Create() {
 
 }
 
-function Read(){
-    var result = document.getElementById("read_return")
-    var ajax = new XMLHttpRequest();
+function Read() {
+    dados = "read";
 
-    result.innerHtml = '<img src="../img/loading.gif" width="100px">';
-
-    ajax.open("GET", "../php/app.php?read", true);
+    //Ajax com JQuery
+    $.ajax({
+        url: 'assets/php/app.php',
+        type: 'POST',
+        data: { data: dados },
+        success: function (result) {
+            //Retorno se tudo ocorreu normalmente
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //Retorno caso algum erro ocorra
+        }
+    });
 
 }
 
-function Update(){
+function Update() {
 
 }
 
-function Delete(){
+function Delete() {
 
 }
