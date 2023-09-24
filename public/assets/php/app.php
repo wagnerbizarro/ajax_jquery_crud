@@ -1,8 +1,9 @@
 <?php
 require 'connection.php';
 
+echo "CHEQUEI AQUI 1!<br>";
 
-if(isset($POST['read'])){
+if(isset($_GET['read'])){
     sleep(2);
-    echo "CHEQUEI AQUI!<br>";
+    echo "CHEQUEI AQUI 2!<br>";
 }
