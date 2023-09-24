@@ -23,12 +23,11 @@
         <div class="card-header text-center bg-black text-light">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="index.html">
-                        <img style="background-color: white;" src="assets/img/house.svg" alt="home" />
-                    </a>
+                    <a class="nav-link text-white" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <p class="nav-link text-white">Create</p>
+                    <a class="nav-link text-white" aria-current="page" href="create.html">Create</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -36,14 +35,31 @@
     <!--Body-->
     <div class="container-md card-body">
 
-        <!--Create-->
-        <div class="container-md mt-3 mb-3" id="create_return">
+        <!--Formulário-->
+        <form>
+            <div class="form-group mt-3 mb-3">
+                <label for="firstName">Nome</label>
+                <input type="text" class="form-control" id="firstName">
+            </div>
 
-        </div>
+            <div class="form-group">
+                <label for="lastName">Sobrenome</label>
+                <input type="text" class="form-control" id="lastName">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Idade</label>
+                <input type="number" class="form-control" id="age">
+            </div>
+        </form>
 
         <!--Button-->
-        <div class="container-md mt-3 mb-3">
-            <button type="submit" class="btn btn-primary" id="create" onclick=Create()>Create</button>
+        <button type="submit" class="btn btn-success mt-3 mb-3" onclick=Create()>Create</button>
+
+        <!--Create Return-->
+        <div class="container-md mt-3 mb-3" id="create_return">
+            <img src="assets/img/loading.gif" id="loader" style="display: none;">
+
         </div>
 
     </div>

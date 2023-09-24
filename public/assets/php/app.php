@@ -1,7 +1,16 @@
 <?php
 require 'connection.php';
 
-$action = $_POST['data'];
-echo $action;
+//Loading
+sleep(3);
 
 
+
+
+
+//Read
+if (isset($_POST['data'])) {
+    //$action = $_POST['data'];
+    //echo $action;
+    echo (read($db));
+}
