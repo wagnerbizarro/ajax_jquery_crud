@@ -1,9 +1,16 @@
 <?php
 require 'connection.php';
 
-echo "CHEQUEI AQUI 1!<br>";
+//Loading
+sleep(3);
 
-if(isset($_GET['read'])){
-    sleep(2);
-    echo "CHEQUEI AQUI 2!<br>";
+
+
+
+
+//Read
+if (isset($_POST['data'])) {
+    //$action = $_POST['data'];
+    //echo $action;
+    echo (read($db));
 }
