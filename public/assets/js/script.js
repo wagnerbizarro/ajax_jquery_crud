@@ -1,7 +1,6 @@
 function Choose() {
     choose = document.getElementById("select");
     var value = choose.value;
-    // console.log(value);
 
     switch (value) {
         case "create":
@@ -26,13 +25,32 @@ function Choose() {
 }
 
 function Create() {
+    $.ajax({
+        url:'assets/php/app.php',
+        type:'DELETE',
+        data: { 
+            firstName:$('#firstName').val(),
+            lastName:$('#lastName').val(),
+            age:$('#age').val(),
+        },
+        beforeSend: function () {
+            $("#loader").show();
+        },
+        success: function (result) {
+            $('#create_return').html(result);
+            $("#loader").hide();
+            $("#create_return").show();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $('#create_return').html(errorThrown);
+        }
+    })
 
 }
 
 function Read() {
     nome = "read";
 
-    //Ajax com JQuery
     $.ajax({
         url: 'assets/php/app.php',
         type: 'POST',
@@ -41,26 +59,57 @@ function Read() {
             $("#loader").show();
         },
         success: function (result) {
-            //Retorno se tudo ocorreu normalmente
-            //console.log("OK")
             $('#read_return').html(result);
             $("#loader").hide();
             $("#read_return").show();
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            //Retorno de erro
-            //console.log("NOT_OK")
             $('#read_return').html(errorThrown);
-            //$('#read_return').html(textStatus);
         }
     });
 
 }
 
 function Update() {
+    $.ajax({
+        url:'assets/php/app.php',
+        type:'PATCH',
+        data: { 
+            id:$('#id_update').val(),
+        },
+        beforeSend: function () {
+            $("#loader").show();
+        },
+        success: function (result) {
+            $('#update_return').html(result);
+            $("#loader").hide();
+            $("#update_return").show();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $('#update_return').html(errorThrown);
+        }
+    })
 
 }
 
 function Delete() {
+    $.ajax({
+        url:'assets/php/app.php',
+        type:'DELETE',
+        data: { 
+            id:$('#id_delete').val(),
+        },
+        beforeSend: function () {
+            $("#loader").show();
+        },
+        success: function (result) {
+            $('#delete_return').html(result);
+            $("#loader").hide();
+            $("#delete_return").show();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $('#delete_return').html(errorThrown);
+        }
+    })
 
 }

@@ -1,16 +1,35 @@
 <?php
 require 'connection.php';
 
+//echo "CHEGUEI AQUI !";
+
+
+$method = $_SERVER['REQUEST_METHOD'];
+
 //Loading
 sleep(3);
 
 
-
-
-
-//Read
-if (isset($_POST['data'])) {
-    //$action = $_POST['data'];
-    //echo $action;
-    echo (read($db));
+switch ($method) {
+    case 'PUT':
+        echo "create";
+        break;
+    
+    case 'POST':
+        echo "read";
+        //echo (read($db));
+        break;
+    
+    case 'GET':
+        echo "GET";
+        break;
+    
+    case 'PATCH':
+        echo "update";
+        break;
+    
+    case 'DELETE':
+        echo "delete";
+        break;
 }
+

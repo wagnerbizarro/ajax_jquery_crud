@@ -30,5 +30,3 @@ function delete($db)
 {
 }
 
-
-//read($db);
