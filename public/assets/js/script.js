@@ -25,13 +25,19 @@ function Choose() {
 }
 
 function Create() {
+    firstName = $('#firstName').val();
+    lastName = $('#lastName').val();
+    age = $('#age').val();
+
+    console.log(firstName+lastName+age);
+
     $.ajax({
-        url:'assets/php/app.php',
-        type:'DELETE',
-        data: { 
-            firstName:$('#firstName').val(),
-            lastName:$('#lastName').val(),
-            age:$('#age').val(),
+        url: 'assets/php/app.php',
+        type: 'PUT',
+        data: {
+            firstName,
+            lastName,
+            age,
         },
         beforeSend: function () {
             $("#loader").show();
@@ -49,12 +55,12 @@ function Create() {
 }
 
 function Read() {
-    nome = "read";
+    readName = $('#name_read').val();
 
     $.ajax({
         url: 'assets/php/app.php',
         type: 'POST',
-        data: { data: nome },
+        data: { data: readName },
         beforeSend: function () {
             $("#loader").show();
         },
@@ -72,10 +78,10 @@ function Read() {
 
 function Update() {
     $.ajax({
-        url:'assets/php/app.php',
-        type:'PATCH',
-        data: { 
-            id:$('#id_update').val(),
+        url: 'assets/php/app.php',
+        type: 'PATCH',
+        data: {
+            id: $('#id_update').val(),
         },
         beforeSend: function () {
             $("#loader").show();
@@ -94,10 +100,10 @@ function Update() {
 
 function Delete() {
     $.ajax({
-        url:'assets/php/app.php',
-        type:'DELETE',
-        data: { 
-            id:$('#id_delete').val(),
+        url: 'assets/php/app.php',
+        type: 'DELETE',
+        data: {
+            id: $('#id_delete').val(),
         },
         beforeSend: function () {
             $("#loader").show();
