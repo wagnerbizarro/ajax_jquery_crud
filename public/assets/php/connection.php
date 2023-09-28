@@ -3,13 +3,18 @@
 //DATABASE
 $db = new SQLite3('../db/db1.db');
 
-function create($db)
+function create($db, $firstName, $lastName, $age)
 {
+    $db->exec("INSERT INTO users(firstName, lastName, age) VALUES('$firstName','$lastName','$age')");
 }
 
-function read($db)
+function read($db, $name)
 {
-    $result = $db->query('SELECT rowid, * FROM users');
+    if ($name == NULL) {
+        $result = $db->query('SELECT rowid, * FROM users');
+    } else {
+        $result = $db->query("SELECT rowid, * FROM users WHERE firstName ='$name'");
+    }
 
     $users = [];
 
@@ -29,4 +34,3 @@ function update($db)
 function delete($db)
 {
 }
-
