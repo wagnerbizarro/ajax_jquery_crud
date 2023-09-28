@@ -11,20 +11,17 @@ sleep(3);
 
 
 switch ($method) {
-    case 'PUT':
-        echo "create";
-        //$firstName = $_PUT["firstName"];
-        //echo $firstName;
-        echo $_PUT["firstNama"];
-        break;
-
     case 'POST':
-        $readName = $_POST["data"];
-        read($db, $readName);
+        $firstName = $_POST["firstName"];
+        $lastName = $_POST["lastName"];
+        $age = $_POST["age"];
+        create($db, $firstName, $lastName, $age);
+        echo "Cadastrado com sucesso !<br>";
         break;
 
     case 'GET':
-        echo "GET";
+        $readName = $_GET["data"];
+        read($db, $readName);
         break;
 
     case 'PATCH':

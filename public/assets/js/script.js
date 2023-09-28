@@ -1,5 +1,5 @@
 function Choose() {
-    choose = document.getElementById("select");
+    var choose = document.getElementById("select");
     var value = choose.value;
 
     switch (value) {
@@ -25,15 +25,15 @@ function Choose() {
 }
 
 function Create() {
-    firstName = $('#firstName').val();
-    lastName = $('#lastName').val();
-    age = $('#age').val();
+    var firstName = $('#firstName').val();
+    var lastName = $('#lastName').val();
+    var age = $('#age').val();
 
-    console.log(firstName+lastName+age);
+    //console.log(firstName+lastName+age);
 
     $.ajax({
         url: 'assets/php/app.php',
-        type: 'PUT',
+        type: 'POST',
         data: {
             firstName,
             lastName,
@@ -59,7 +59,7 @@ function Read() {
 
     $.ajax({
         url: 'assets/php/app.php',
-        type: 'POST',
+        type: 'GET',
         data: { data: readName },
         beforeSend: function () {
             $("#loader").show();
