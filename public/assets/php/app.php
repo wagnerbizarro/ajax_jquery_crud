@@ -1,9 +1,6 @@
 <?php
 require 'connection.php';
 
-//echo "CHEGUEI AQUI !";
-//echo $method = $_SERVER['REQUEST_METHOD'];
-
 $method = $_SERVER['REQUEST_METHOD'];
 
 //Loading
@@ -12,29 +9,31 @@ sleep(3);
 switch ($method) {
     case 'POST':
         $action = $_POST["action"];
+        $firstName = $_POST["firstName"];
+        $lastName = $_POST["lastName"];
+        $age = $_POST["age"];
 
+        echo "$action";
+        //CREATE
         if ($action == "create") {
-            $firstName = $_POST["firstName"];
-            $lastName = $_POST["lastName"];
-            $age = $_POST["age"];
             create($db, $firstName, $lastName, $age);
 
-        } elseif ($action == "delete") {
-            $id_delete = $_POST["id"];
+        }//DELETE 
+        elseif ($action == "delete") {
+            $id_delete = $_POST["id_delete"];
             delete($db, $id_delete);
-            
-        } elseif ($action == "update") {
-            $id_update = $_POST["id"];
-            update($db, $id_update);
+
+        }//UPDATE 
+        elseif ($action == "update") {
+            echo "UPDATEEE 1";
+            $id = $_POST["id"];
+            update($db, $id, $firstName, $age);
         }
         break;
 
+    //READ
     case 'GET':
         $readName = $_GET["data"];
         read($db, $readName);
-        break;
-
-    case 'PATCH':
-        echo "update";
         break;
 }
