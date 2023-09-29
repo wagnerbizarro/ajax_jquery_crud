@@ -14,24 +14,30 @@ switch ($method) {
         $age = $_POST["age"];
 
         echo "$action";
+
         //CREATE
         if ($action == "create") {
             create($db, $firstName, $lastName, $age);
+        } 
 
-        }//DELETE 
+        //DELETE 
         elseif ($action == "delete") {
             $id_delete = $_POST["id_delete"];
             delete($db, $id_delete);
-
-        }//UPDATE 
+        } 
+        
+        //UPDATE 
         elseif ($action == "update") {
-            echo "UPDATEEE 1";
+            //echo "UPDATEEE 1";
             $id = $_POST["id"];
-            update($db, $id, $firstName, $age);
+            $firstName = $_POST["firstName"];
+            $lastName = $_POST["lastName"];
+            $age = $_POST["age"];
+            update($db, $id, $firstName, $lastName, $age);
         }
         break;
 
-    //READ
+        //READ
     case 'GET':
         $readName = $_GET["data"];
         read($db, $readName);
