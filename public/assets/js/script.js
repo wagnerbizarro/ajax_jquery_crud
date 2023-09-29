@@ -66,6 +66,7 @@ function Read() {
 
 }
 
+//CREATE
 function Create() {
     $("#div-read").hide();
     $("#div-update").hide();
@@ -75,28 +76,32 @@ function Create() {
     var lastName = $('#lastName_create').val();
     var age = $('#age_create').val();
 
-    $.ajax({
-        url: 'assets/php/app.php',
-        type: 'POST',
-        data: {
-            action,
-            firstName,
-            lastName,
-            age,
-        },
-        success: function (result) {
-            alert("Cadastrado!");
-            // Refresh F5
-            location.reload(true);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            $('#div-return').show();
-            $('#div-return').html(errorThrown);
-        }
-    });
-
+    if (firstName, lastName, age) {
+        $.ajax({
+            url: 'assets/php/app.php',
+            type: 'POST',
+            data: {
+                action,
+                firstName,
+                lastName,
+                age,
+            },
+            success: function (result) {
+                alert("Cadastrado!");
+                location.reload(true);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('#div-return').show();
+                $('#div-return').html(errorThrown);
+            }
+        });
+    }
+    else {
+        alert("ERRO: Preencha todos os campos!");
+    }
 }
 
+//DELETE
 function Delete(id_delete) {
     var action = "delete";
 
@@ -109,7 +114,6 @@ function Delete(id_delete) {
         },
         success: function () {
             alert("Removido!");
-            // Refresh F5
             location.reload(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -120,6 +124,7 @@ function Delete(id_delete) {
 
 }
 
+//UPDATE
 function prepareUpdate(id_update,) {
     $("#div-create").hide();
     $("#div-read").hide();
@@ -128,34 +133,39 @@ function prepareUpdate(id_update,) {
 
     $("#id_update").val(id_update);
     $('#id_update').attr('readonly', 'true');
-    $('#id_update').css('background-color' , '#DEDEDE');
-
-    
+    $('#id_update').css('background-color', '#DEDEDE');
 }
 
-function Update(){
+function Update() {
     var action = "update";
     var id = $('#id_update').val();
     var firstName = $('#firstName_update').val();
     var lastName = $('#lastName_update').val();
     var age = $('#age_update').val();
 
-    $.ajax({
-        url: 'assets/php/app.php',
-        type: 'POST',
-        data: {
-            action,
-            id,
-        },
-        success: function () {
-            alert("Editado!");
-            // Refresh F5
-            location.reload(true);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            $('#div-return').show();
-            $('#div-return').html(errorThrown);
-        }
-    });
+    if (id, firstName, lastName, age) {
+        $.ajax({
+            url: 'assets/php/app.php',
+            type: 'POST',
+            data: {
+                action,
+                id,
+                firstName,
+                lastName,
+                age,
+            },
+            success: function () {
+                alert("Editado!");
+                location.reload(true);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('#div-return').show();
+                $('#div-return').html(errorThrown);
+            }
+        });
+    }
+    else {
+        alert("ERRO: Preencha todos os campos!");
+    }
 
 }

@@ -4,7 +4,8 @@
 $db = new SQLite3('../db/db1.db');
 
 //READ
-function read($db, $name){
+function read($db, $name)
+{
     if ($name == NULL) {
         $result = $db->query('SELECT rowid, * FROM users');
     } else {
@@ -36,35 +37,33 @@ function read($db, $name){
         $id = $users['rowid'];
         $firstName = $users['firstName'];
         $lastName = $users['lastName'];
-        $age =$users['age'];
+        $age = $users['age'];
 
         echo '<tr>';
-        echo '<td>'.$id.'</td>';
-        echo '<td>'.$firstName.'</td>';
-        echo '<td>'.$lastName.'</td>';
-        echo '<td>'.$age.'</td>';
-        echo '<td><a href="#" onclick="prepareUpdate('.$id.');">Edit</a></td>';
-        echo '<td><a href="#" onclick="Delete('.$users['rowid'].');">Deletar</a></td>';
+        echo '<td>' . $id . '</td>';
+        echo '<td>' . $firstName . '</td>';
+        echo '<td>' . $lastName . '</td>';
+        echo '<td>' . $age . '</td>';
+        echo '<td><a href="#" onclick="prepareUpdate(' . $id . ');">Edit</a></td>';
+        echo '<td><a href="#" onclick="Delete(' . $users['rowid'] . ');">Deletar</a></td>';
         echo '</tr>';
-
     }
 }
 
 //CREATE
-function create($db, $firstName, $lastName, $age){
+function create($db, $firstName, $lastName, $age)
+{
     $db->exec("INSERT INTO users(firstName, lastName, age) VALUES('$firstName','$lastName','$age')");
 }
 
 //DELETE
-function delete($db,$id){
+function delete($db, $id)
+{
     $db->exec("DELETE FROM users WHERE rowid = $id");
 }
 
 //UPDATE
-function update($db,$id,$firstName,$lastName,$age){
-    $result = $db->query('SELECT rowid, * FROM users');
-    echo "UPDATEEEEE";
-    echo "$id,$firstName, $lastName,$age";
+function update($db, $id, $firstName, $lastName, $age)
+{
+    $db->exec("UPDATE users SET firstName='$firstName', lastName='$lastName', age='$age' WHERE rowid='$id'");
 }
-
-
