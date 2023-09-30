@@ -48,6 +48,7 @@ function Read() {
         type: 'GET',
         data: { data: readName },
         beforeSend: function () {
+            $("#div-read").hide();
             $("#div-return").show();
             $("#loader").show();
 
@@ -70,6 +71,10 @@ function Read() {
 function Create() {
     $("#div-read").hide();
     $("#div-update").hide();
+    $("#div-create").hide();
+
+    $("#div-return").show();
+    $("#loader").show();
 
     var action = "create";
     var firstName = $('#firstName_create').val();
