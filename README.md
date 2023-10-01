@@ -1,4 +1,4 @@
-# ajax_crud  
+# ajax_jquery_crud  
 **Autor:** _Wagner Bizarro_      
 **Sobre:** AJAX  
 **Stack:** HTML/CSS/JS/PHP  
